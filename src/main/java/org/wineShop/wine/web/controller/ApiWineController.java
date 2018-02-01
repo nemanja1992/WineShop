@@ -2,6 +2,8 @@ package org.wineShop.wine.web.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,13 @@ public class ApiWineController {
 	private WineToWineDTO toDTO;
 	@Autowired
 	private WineDTOToWine toWine;
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity<List<WineDTO>> get(){
+		return new ResponseEntity<>(
+				toDTO.convert(wineService.findAll()),
+				HttpStatus.OK);
+	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<WineDTO> get(

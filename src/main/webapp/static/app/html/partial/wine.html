@@ -1,9 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<h2>WINE SHOP</h2>
-</body>
-</html>
+<div ng-controller="wineCtrl">
+	
+
+
+
+	
+  <table class="own-table own-table-rounded">
+        <tr>
+            <th>Name</th>
+            <th>Alcohol percent</th>
+            <th>Vintage</th>
+            <th>Company</th>
+            <th>Country</th>
+            <th>Type</th>
+            <th></th>
+            
+        </tr>
+        <tr ng-repeat="wine in wines">
+            <td>{{wine.name}}</td>
+            <td>{{wine.alcoholPercent}}</td>
+            <td>{{wine.vintage}}</td>
+            <td>{{wine.companyName}}</td>
+            <td>{{wine.companyCountry}}</td>
+            <td>{{wine.typeName}}</td>
+             <td>
+                <button class="btn btn-primary" ng-click="delete(wine.id)">Delete</button>
+                <button class="btn btn-info" ng-click="edit(wine.id)">Edit</button>
+            </td>
+        </tr>
+    </table> 
+    <div class="btn-group pull-right">
+        <button class="btn btn-primary" ng-click="preview()" ng-disabled="pageNum==0">Preview</button>
+        <button class="btn btn-primary" ng-click="next()" ng-disabled="pageNum == totalPages - 1">Next</button>
+    </div>
+    <br><br>
+    
+</div>
