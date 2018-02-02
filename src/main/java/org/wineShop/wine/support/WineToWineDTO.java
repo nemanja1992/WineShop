@@ -18,6 +18,8 @@ public class WineToWineDTO
 		dto.setId(c.getId());
 		dto.setName(c.getName());
 		dto.setAlcoholPercent(c.getAlcoholPercent());
+		dto.setPrice(c.getPrice());
+		dto.setQuantity(c.getQuantity());
 		dto.setVintage(c.getVintage());
 		dto.setCompanyId(c.getCompany().getId());
 		dto.setCompanyName(c.getCompany().getName());
@@ -25,6 +27,7 @@ public class WineToWineDTO
 		dto.setCompanyCountry(c.getCompany().getCountry());
 		dto.setTypeId(c.getType().getId());
 		dto.setTypeName(c.getType().getName());
+		
 		
 		return dto;
 	}

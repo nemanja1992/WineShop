@@ -8,6 +8,8 @@ public class WineDTO {
 	private Long id;
 	private String name;
 	private Double alcoholPercent;
+	private Double price;
+	private int quantity;
 	private Date vintage;
 	private Long companyId;
 	private String companyName;
@@ -76,6 +78,18 @@ public class WineDTO {
 	}
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	

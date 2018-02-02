@@ -23,6 +23,10 @@ public class Wine {
 	@Column
 	private Double alcoholPercent;
 	@Column
+	private Double price;
+	@Column
+	private int quantity;
+	@Column
 	private Date vintage;
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Company company;
@@ -71,6 +75,18 @@ public class Wine {
 	}
 	public void setAlcoholPercent(Double alcoholPercent) {
 		this.alcoholPercent = alcoholPercent;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	

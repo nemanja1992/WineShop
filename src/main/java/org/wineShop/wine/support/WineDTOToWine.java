@@ -32,6 +32,8 @@ public class WineDTOToWine
 		wine.setName(source.getName());
 		wine.setAlcoholPercent(source.getAlcoholPercent());
 		wine.setVintage(source.getVintage());
+		wine.setPrice(source.getPrice());
+		wine.setQuantity(source.getQuantity());
 		
 		return wine;
 	}
