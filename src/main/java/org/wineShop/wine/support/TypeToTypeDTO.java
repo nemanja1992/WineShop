@@ -20,10 +20,10 @@ public class TypeToTypeDTO
 		return dto;
 	}
 	
-	public List<TypeDTO> convert(List<Type> types){
+	public List<TypeDTO> convert(List<Type> type){
 		List<TypeDTO> ret=new ArrayList<>();
 		
-		for(Type c: types){
+		for(Type c: type){
 			ret.add(convert(c));
 		}
 		return ret;

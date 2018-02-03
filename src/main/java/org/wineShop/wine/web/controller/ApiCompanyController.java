@@ -55,7 +55,13 @@ public class ApiCompanyController {
 				HttpStatus.OK);
 	}
 	
-
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity<List<CompanyDTO>> get(){
+		return new ResponseEntity<>(
+				toDTO.convert(companyService.findAll()),
+				HttpStatus.OK);
+	}
+	
 	@RequestMapping(value="/{companyId}/wines")
 	public ResponseEntity<List<WineDTO>> wineCompany(
 		@PathVariable Long companyId,

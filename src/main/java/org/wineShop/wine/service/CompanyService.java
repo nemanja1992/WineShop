@@ -2,12 +2,13 @@ package org.wineShop.wine.service;
 
 
 
-import org.springframework.data.domain.Page;
+import java.util.List;
+
 
 import org.wineShop.wine.model.Company;
 
 public interface CompanyService {
-	Page<Company> findAll(int pageNum);
+	List<Company> findAll();
 	Company findOne(Long id);
 	void save (Company company);
 	void remove(Long id);

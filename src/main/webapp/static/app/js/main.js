@@ -23,6 +23,14 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 	$scope.types = [];
 	$scope.wines = [];
 
+    $scope.newWine = {};
+    $scope.newWine.name = "" ;
+    $scope.newWine.alcoholPercent = "" ;
+    $scope.newWine.price = "" ;
+    $scope.newWine.quantity = "" ;
+    $scope.newWine.vintage = "" ;
+    $scope.newWine.companyId = "" ;
+    $scope.newWine.typeId = "";
 
 	var getWines = function(){
 		
@@ -37,7 +45,24 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 			});
 	};
 
+    var getCompany = function(){
+
+        $http.get(base_url_company)
+            .then(function success(data){
+                $scope.companies = data.data;
+            });
+    };
+     var getType = function(){
+
+        $http.get(base_url_type)
+            .then(function success(data){
+                $scope.types = data.data;
+            });
+    };
+
 	getWines();
+    getCompany();
+    getType();
 
 	$scope.preview = function(){
         if($scope.pageNum > 0) {
@@ -55,11 +80,11 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
     $scope.find = function () {
         $scope.pageNum = 0;
         getWines();
-    }
+    };
 
     $scope.edit = function(id){
         $location.path('/wine/edit/' + id);
-    }
+    };
 
     $scope.delete = function(id){
         $http.delete(base_url_wine + "/" + id).then(
@@ -72,5 +97,22 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
             }
         );
 
-    }
+    };
+    $scope.add = function () {
+        $http.post(base_url_wine, $scope.newWine)
+        .then(function success(data){
+            console.log(data.data);
+            alert("Success adding");
+            getWines();
+
+            $scope.newWine.name = "" ;
+            $scope.newWine.alcoholPercent = "" ;
+            $scope.newWine.price = "" ;
+            $scope.newWine.quantity = "" ;
+            $scope.newWine.vintage = "" ;
+            $scope.newWine.companyId = "" ;
+            $scope.newWine.typeId = "";
+        });
+    };
+
 });

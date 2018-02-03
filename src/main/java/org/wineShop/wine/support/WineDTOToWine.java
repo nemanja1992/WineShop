@@ -5,6 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.wineShop.wine.model.Wine;
 import org.wineShop.wine.service.CompanyService;
+import org.wineShop.wine.service.TypeService;
 import org.wineShop.wine.service.WineService;
 import org.wineShop.wine.web.dto.WineDTO;
 
@@ -17,6 +18,9 @@ public class WineDTOToWine
 	private WineService wineService;
 	@Autowired
 	private CompanyService companyService;
+	@Autowired
+	private TypeService typeService;
+	
 	
 	@Override
 	public Wine convert(WineDTO source) {
@@ -26,6 +30,9 @@ public class WineDTOToWine
 			wine.setCompany(
 					companyService.findOne(
 							source.getCompanyId()));
+			wine.setType(
+					typeService.findOne(
+							source.getTypeId()));
 		}else{
 			wine=wineService.findOne(source.getId());
 		}

@@ -4,12 +4,6 @@ package org.wineShop.wine.model;
 import java.util.List;
 
 
-
-
-
-
-
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,26 +30,26 @@ public class Type {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long categoryId) {
-		this.id = categoryId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String categoryName) {
-		this.name = categoryName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public List<Wine> getWineList() {
 		return wineList;
 	}
-	public void setWineList(List<Wine> newsList) {
-		this.wineList = newsList;
+	public void setWineList(List<Wine> wineList) {
+		this.wineList = wineList;
 	}
 
 	public void addWine (Wine wine){
 		this.wineList.add(wine);
 		
-		if(!this.equals(wine.getCompany())){
+		if(!this.equals(wine.getType())){
 			wine.setType(this);
 		}
 	}

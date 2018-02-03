@@ -9,14 +9,14 @@ public class TypeDTO {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long categoryId) {
-		this.id = categoryId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String categoryName) {
-		this.name = categoryName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

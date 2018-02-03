@@ -21,14 +21,14 @@ public class WineDTO {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long commentId) {
-		this.id = commentId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String commentAuthorName) {
-		this.name = commentAuthorName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Double getAlcoholPercent() {
@@ -40,32 +40,32 @@ public class WineDTO {
 	public Date getVintage() {
 		return vintage;
 	}
-	public void setVintage(Date commentDate) {
-		this.vintage = commentDate;
+	public void setVintage(Date vintage) {
+		this.vintage = vintage;
 	}
 	public Long getCompanyId() {
 		return companyId;
 	}
-	public void setCompanyId(Long newsId) {
-		this.companyId = newsId;
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
 	}
 	public String getCompanyName() {
 		return companyName;
 	}
-	public void setCompanyName(String title) {
-		this.companyName = title;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	public String getCompanyPib() {
 		return companyPib;
 	}
-	public void setCompanyPib(String tagline) {
-		this.companyPib = tagline;
+	public void setCompanyPib(String companyPib) {
+		this.companyPib = companyPib;
 	}
 	public String getCompanyCountry() {
 		return companyCountry;
 	}
-	public void setCompanyCountry(String text) {
-		this.companyCountry = text;
+	public void setCompanyCountry(String companyCountry) {
+		this.companyCountry = companyCountry;
 	}
 	public Long getTypeId() {
 		return typeId;

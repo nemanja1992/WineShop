@@ -1,9 +1,10 @@
 package org.wineShop.wine.service.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.wineShop.wine.model.Company;
@@ -18,9 +19,8 @@ public class JpaCompanyServiceImpl implements CompanyService{
 	private CompanyRepository companyRepository;
 	
 	@Override
-	public Page<Company> findAll(int pageNum) {
-		return companyRepository.findAll(
-				new PageRequest(pageNum, 8));
+	public List<Company> findAll() {
+		return companyRepository.findAll();
 				
 	}
 

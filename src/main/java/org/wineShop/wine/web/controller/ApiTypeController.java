@@ -3,6 +3,7 @@ package org.wineShop.wine.web.controller;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
@@ -36,6 +37,13 @@ public class ApiTypeController {
 	@Autowired
 	private WineToWineDTO toWineDTO;
 	
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity<List<TypeDTO>> get(){
+		return new ResponseEntity<>(
+				toDTO.convert(typeService.findAll()),
+				HttpStatus.OK);
+	}
+	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<TypeDTO> get(
 			@PathVariable Long id){
@@ -50,7 +58,7 @@ public class ApiTypeController {
 	}
 	
 	@RequestMapping(value="/{typeId}/wines")
-	public ResponseEntity<List<WineDTO>> WineType(
+	public ResponseEntity<List<WineDTO>> wineType(
 			@PathVariable Long typeId,
 			@RequestParam(defaultValue="0") int pageNum){
 		Page<Wine> wines= wineService.findByTypeId(pageNum, typeId);

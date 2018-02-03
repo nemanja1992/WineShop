@@ -38,34 +38,34 @@ public class Company {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long newsId) {
-		this.id = newsId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String title) {
-		this.name = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPib() {
 		return pib;
 	}
-	public void setPib(String tagline) {
-		this.pib = tagline;
+	public void setPib(String pib) {
+		this.pib = pib;
 	}
 	public String getCountry() {
 		return country;
 	}
-	public void setCountry(String text) {
-		this.country = text;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 
 	public List<Wine> getListOfWines() {
 		return listOfWines;
 	}
-	public void setListOfWines(List<Wine> listOfComments) {
-		this.listOfWines = listOfComments;
+	public void setListOfWines(List<Wine> listOfWines) {
+		this.listOfWines = listOfWines;
 	}
 	public void  addWine(Wine wine){
 		this.listOfWines.add(wine);

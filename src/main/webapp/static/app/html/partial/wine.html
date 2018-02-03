@@ -1,27 +1,103 @@
 <div ng-controller="wineCtrl">
 	
 
+<span class="map">
+    <h3 class="half">Find us on map...</h3>
+<iframe
+  width=100%
+  height="450"
+  frameborder="0" style="border:0;float: right;"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAz4_XNSGZE8K9Y8325vIdx1nTqodBUl4c
+    &q=Kornelija+Stankovića+24,+Нови+Сад" allowfullscreen>
+</iframe>
+</span>
 
 
+     <div class="row my " >
+         <br/>
+         <form>
+            <h3 class="half">Add new wine</h3>
+             
+             <div class="col-25">
+                 <label for="nameNW">Name:</label>
+                 <input  type="text"  name="nameNW" ng-model="newWine.name" placeholder="Please enter wine name" id="clear" required>
+             </div>
+             <br><br>
+             <div class="col-25">
+                 <label for="vintage">Vintage:</label>
+                 <input type="date"  id="rangeForm" name="vintage" ng-model="newWine.vintage" placeholder="Please enter vintage" required>
+             </div>
+             <br/>
+             <div class="col-25">
+                 <label for="percent">Alcohol percent:</label>
+                 <input type="number"  name="percent" ng-model="newWine.alcoholPercent" placeholder="Please enter alcohol percent" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01"  double required>
+                 <span ng-show="form.size.$error.double">The value is not a valid integer!</span>
+    
+             </div>
+             <div class="col-25">
+                <label for="company">Company</label>
+                <select class="form-control" name="company" ng-model="newWine.companyId"  required>
+                    <option ng-repeat="company in companies" value="{{company.id}}">{{company.name}}</option>
+
+                </select>
+            </div>
+             <div class="col-25">
+                <label for="type">Type</label>
+                <select class="form-control" name="type" ng-model="newWine.typeId"  required >
+                    <option ng-repeat="type in types" value="{{type.id}}">{{type.name}}</option>
+
+                </select>
+            </div>
+
+             <div class="col-25">
+                 <label for="price">Price:</label>
+                 <input type="number"  name="price" ng-model="newWine.price" placeholder="Please enter price" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01"  double required>
+                 <span ng-show="form.size.$error.double">The value is not a valid decimal number!</span>
+    
+             </div>
+             <div class="col-25">
+                 <label for="quantity">Quantity:</label>
+                 <input type="number"  name="quantity" ng-model="newWine.quantity" placeholder="Please enter the number of wine bottles
+"   integer required>
+                 <span ng-show="form.size.$error.integer">The value is not a valid integer!</span>
+    
+             </div>
+             <br/>
+             <button type="button" class="btn btn-primary" ng-click="newWine= null">Clear</button>
+             <button type="submit" id="register-form" class="btn btn-primary" ng-click="add()">Add!</button>
+         </form>
+
+         <br/>
+         <br/>
+         <br/>
+     
+</div>
+</span>
+<span>
 	
   <table class="own-table own-table-rounded">
-        <tr>
+
+        <tr> 
             <th>Name</th>
             <th>Alcohol percent</th>
             <th>Vintage</th>
             <th>Company</th>
             <th>Country</th>
             <th>Type</th>
+            <th>Price</th>
+            <th>Quantity</th>
             <th></th>
             
         </tr>
         <tr ng-repeat="wine in wines">
             <td>{{wine.name}}</td>
-            <td>{{wine.alcoholPercent}}</td>
+            <td>{{wine.alcoholPercent}}%</td>
             <td>{{wine.vintage}}</td>
             <td>{{wine.companyName}}</td>
             <td>{{wine.companyCountry}}</td>
             <td>{{wine.typeName}}</td>
+            <td>{{wine.price}}$</td>
+            <td>{{wine.quantity}}</td>
              <td>
                 <button class="btn btn-primary" ng-click="delete(wine.id)">Delete</button>
                 <button class="btn btn-info" ng-click="edit(wine.id)">Edit</button>
@@ -33,5 +109,5 @@
         <button class="btn btn-primary" ng-click="next()" ng-disabled="pageNum == totalPages - 1">Next</button>
     </div>
     <br><br>
-    
+</span>
 </div>
