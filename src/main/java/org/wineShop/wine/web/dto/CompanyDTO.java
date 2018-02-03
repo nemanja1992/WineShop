@@ -8,8 +8,8 @@ public class CompanyDTO {
 	private String name;
 	private String pib;
 	private String country;
-	
-	
+
+
 	public Long getId() {
 		return id;
 	}
@@ -35,7 +35,7 @@ public class CompanyDTO {
 		this.country = country;
 	}
 
-	
-	
-	
+
+
+
 }

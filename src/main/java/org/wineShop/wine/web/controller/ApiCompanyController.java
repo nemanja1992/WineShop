@@ -29,7 +29,7 @@ import org.wineShop.wine.web.dto.WineDTO;
 @RestController
 @RequestMapping("/api/company")
 public class ApiCompanyController {
-	
+
 	@Autowired
 	private CompanyService companyService;
 	@Autowired
@@ -38,46 +38,46 @@ public class ApiCompanyController {
 	private CompanyToCompanyDTO toDTO;
 	@Autowired
 	private WineToWineDTO toWineDTO;
-	
-	
-	
+
+
+
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<CompanyDTO> get(
 			@PathVariable Long id){
 		Company company=companyService.findOne(id);
-		
+
 		if(company==null){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		
+
 		return new ResponseEntity<>(
 				toDTO.convert(company),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<CompanyDTO>> get(){
 		return new ResponseEntity<>(
 				toDTO.convert(companyService.findAll()),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value="/{companyId}/wines")
 	public ResponseEntity<List<WineDTO>> wineCompany(
-		@PathVariable Long companyId,
-		@RequestParam(defaultValue="0") int pageNum){
-			Page<Wine> wines =wineService.findByCompanyId(pageNum, companyId);
-			
-			HttpHeaders headers=new HttpHeaders();
-			headers.add("totalPages", Integer.toString(wines.getTotalPages()));
-			return new ResponseEntity<>(
-					toWineDTO.convert(wines.getContent()),
-					headers,
-					HttpStatus.OK);
-		
-	}
-	
+			@PathVariable Long companyId,
+			@RequestParam(defaultValue="0") int pageNum){
+		Page<Wine> wines =wineService.findByCompanyId(pageNum, companyId);
 
-		
-	
+		HttpHeaders headers=new HttpHeaders();
+		headers.add("totalPages", Integer.toString(wines.getTotalPages()));
+		return new ResponseEntity<>(
+				toWineDTO.convert(wines.getContent()),
+				headers,
+				HttpStatus.OK);
+
+	}
+
+
+
+
 }

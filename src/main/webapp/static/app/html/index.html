@@ -1,68 +1,71 @@
 <!DOCTYPE html>
-<html >
-    <head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="/static/assets/css/bootstrap.css" rel="stylesheet"/>
-        <link href="/static/assets/css/theme.css" rel="stylesheet">
-        <link href="/static/assets/css/custom.css" rel="stylesheet">
-        <script src="/static/assets/js/angular.min.js"></script>
-        <script src="/static/assets/js/angular-route.min.js"></script>
-        <script src="/static/app/js/main.js"></script>
-        <script src="/static/app/js/custom.js"></script>
+<link href="/static/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="/static/assets/css/theme.css" rel="stylesheet">
+<link href="/static/assets/css/custom.css" rel="stylesheet">
+<script src="/static/assets/js/angular.min.js"></script>
+<script src="/static/assets/js/angular-route.min.js"></script>
+<script src="/static/app/js/main.js"></script>
+<script src="/static/app/js/custom.js"></script>
 
-        <script src="/static/assets/js/jquery-3.2.1.min.js"></script>
-        <script src="/static/assets/js/bootstrap.js"></script>
-       <style type="text/css">
-           body {
-   background-image: url("static/assets/img/wine.jpg");
-   background-color: #cccccc;
-   background-attachment: fixed;
-       </style>
-        
-    </head>
-    <body  ng-app="wineShop">
+<script src="/static/assets/js/jquery-3.2.1.min.js"></script>
+<script src="/static/assets/js/bootstrap.js"></script>
+<style type="text/css">
+body {
+	background-image: url("static/assets/img/wine.jpg");
+	background-color: #cccccc;
+	background-attachment: fixed;
+}
+</style>
+
+</head>
+<body ng-app="wineShop">
 	<div class="example3">
-<!--   <nav  class="navbar navbar-inverse navbar-static-top"> -->
-    <nav  class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-       
-        <a class="navbar-brand" href=""><img class="img" src="static/assets/img/logo.png" alt="image">
-        </a>
-      </div>
-      <div id="navbar3" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</div>
-	   <div class="container">
-	   <br><br>
-       <br><br>
-      <br><br>
+		<!--   <nav  class="navbar navbar-inverse navbar-static-top"> -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
 
-		  <div ng-view></div>
+					<a class="navbar-brand" href=""><img class="img"
+						src="static/assets/img/logo.png" alt="image"> </a>
+				</div>
+				<div id="navbar3" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+								<span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li class="dropdown-header">Nav header</li>
+								<li><a href="#">Separated link</a></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="container">
+		<br>
+		<br> <br>
+		<br> <br>
+		<br>
 
-	   </div>
+		<div ng-view></div>
 
-    </body>
+	</div>
+
+</body>
 </html>

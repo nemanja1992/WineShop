@@ -1,139 +1,151 @@
 .example3 .navbar-brand {
-  height: 90px;
+	height: 90px;
 }
 
-.example3 .nav >li >a {
-  padding-top: 30px;
-  padding-bottom: 30px;
+.example3 .nav>li>a {
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
+
 .example3 .navbar-toggle {
-  padding: 10px;
-  margin: 25px 15px 25px 0;
+	padding: 10px;
+	margin: 25px 15px 25px 0;
 }
+
 .img {
-    height: 70px;
+	height: 70px;
 }
+
 div.static {
-    position: static;
-    border: 3px solid #73AD21;
+	position: static;
+	border: 3px solid #73AD21;
 }
 
 .own-table {
-    border: solid 5px #DDEEEE;
-    border-collapse: collapse;
-    font: normal 15px Arial, sans-serif;
-    width: 100%;
-
+	border: solid 5px #DDEEEE;
+	border-collapse: collapse;
+	font: normal 15px Arial, sans-serif;
+	width: 100%;
 }
+
 .own-table thead th {
-	background-color:rgba(76, 185, 180, 0.9) ;
-    border: solid 5px #DDEEEE;
-    color: #000;
-   
+	background-color: rgba(76, 185, 180, 0.9);
+	border: solid 5px #DDEEEE;
+	color: #000;
 }
-.own-table tbody td {
-    border: solid 5px #DDEEEE;
-    color: #333;
-    padding: 10px;
 
+.own-table tbody td {
+	border: solid 5px #DDEEEE;
+	color: #333;
+	padding: 10px;
 }
+
 .own-table-rounded {
-    border: none;
+	border: none;
 }
+
 .own-table-rounded tbody th {
-border: none;
-    height: 1cm;
-    background-color:rgba(0, 150, 180, 0.7) ;
-    color:#000000;
-    font: bold 17px Arial, sans-serif;
-    padding-left: 10px;
-  
+	border: none;
+	height: 1cm;
+	background-color: rgba(0, 150, 180, 0.7);
+	color: #000000;
+	font: bold 17px Arial, sans-serif;
+	padding-left: 10px;
 }
+
 .own-table-rounded thead th:first-child {
-    border-radius: 10px 0 0 0;
+	border-radius: 10px 0 0 0;
 }
+
 .own-table-rounded thead th:last-child {
-    border-radius: 0 10px 0 0;
+	border-radius: 0 10px 0 0;
 }
+
 .own-table-rounded tbody td {
-    border: none;
-    border-top: solid 3px #000;
-    background-color:rgba(76, 185, 180, 0.5) ;
-    color:#000000; 
+	border: none;
+	border-top: solid 3px #000;
+	background-color: rgba(76, 185, 180, 0.5);
+	color: #000000;
 }
 
 .own-table-rounded tbody tr:last-child td:first-child {
-    border-radius: 0 0 0 10px;
+	border-radius: 0 0 0 10px;
 }
 /*.own-table-rounded tbody tr:last-child td:last-child {
     border-radius: 0 0 10px 0;
 }*/
 input[type=text] {
-    background-color:rgba(76, 185, 180, 0.7);
-    color: black;
-    width: 100%;
-    float: right;
+	background-color: rgba(76, 185, 180, 0.7);
+	color: black;
+	width: 100%;
+	float: right;
 }
+
 input[type=number] {
-    background-color:rgba(76, 185, 180, 0.7);
-    color: black;
-    width: 100%;
+	background-color: rgba(76, 185, 180, 0.7);
+	color: black;
+	width: 100%;
 }
+
 input[type=date] {
-    background-color:rgba(76, 185, 180, 0.7);
-    color: black;
-width: 100%;
+	background-color: rgba(76, 185, 180, 0.7);
+	color: black;
+	width: 100%;
 }
-div.my{
-    width: 50%;
-    display: inline;
-    float: left;
-    
+
+div.my {
+	width: 50%;
+	display: inline;
+	float: left;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: gray;
-    opacity: 1; /* Firefox */
+	color: gray;
+	opacity: 1; /* Firefox */
 }
-.form-control{
-    background-color:rgba(76, 185, 180, 0.7);
-    color: black;
-    width: 100%;
+
+.form-control {
+	background-color: rgba(76, 185, 180, 0.7);
+	color: black;
+	width: 100%;
 }
-label{
-    color:blue;
-    display: inline;
-    background-color:rgba(171, 200, 200, 0.44);
-    border-radius: 3px 3px 3px 3px;
+
+label {
+	color: blue;
+	display: inline;
+	background-color: rgba(171, 200, 200, 0.44);
+	border-radius: 3px 3px 3px 3px;
 }
-h3.half{
-    color: rgb(67, 68, 68);
-    font:bold;
-    background-color:rgba(171, 200, 200, 0.44);
-    border-radius: 3px 3px 3px 3px;
-    width: 50%;
+
+h3.half {
+	color: rgb(67, 68, 68);
+	font: bold;
+	background-color: rgba(171, 200, 200, 0.44);
+	border-radius: 3px 3px 3px 3px;
+	width: 50%;
 }
-h3.halfe{
-    color: rgb(54, 236, 236);
-    font:bold;
-    background-color:rgba(171, 200, 200, 0.44);
-    border-radius: 3px 3px 3px 3px;
-    width: 50%;
-    float: right;
+
+h3.halfe {
+	color: rgb(54, 236, 236);
+	font: bold;
+	background-color: rgba(171, 200, 200, 0.44);
+	border-radius: 3px 3px 3px 3px;
+	width: 50%;
+	float: right;
 }
 
 table::before {
-     content: "Wine card";
-    background-color: rgba(171, 200, 200, 0.36);
-    color: rgb(67, 68, 68);
-    font-weight: bold;
-    font-size: 40px;
-    width: 100%;
-    border-radius: 3px 3px 3px 3px;
-}
-span.map{
-    float: right;
-    width: 50%;
+	content: "Wine card";
+	background-color: rgba(171, 200, 200, 0.36);
+	color: rgb(67, 68, 68);
+	font-weight: bold;
+	font-size: 40px;
+	width: 100%;
+	border-radius: 3px 3px 3px 3px;
 }
 
+span.map {
+	float: right;
+	width: 50%;
+}
 }

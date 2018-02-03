@@ -22,59 +22,59 @@ import org.wineShop.wine.web.dto.WineDTO;
 @RestController
 @RequestMapping("/api/wine")
 public class ApiWineController {
-	
+
 	@Autowired 
 	private WineService wineService;
 	@Autowired
 	private WineToWineDTO toDTO;
 	@Autowired
 	private WineDTOToWine toWine;
-	
+
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<WineDTO>> get(){
 		return new ResponseEntity<>(
 				toDTO.convert(wineService.findAll()),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<WineDTO> get(
 			@PathVariable Long id){
 		Wine wine= wineService.findOne(id);
-		
+
 		if(wine == null){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		
+
 		return new ResponseEntity<>(
 				toDTO.convert(wine),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<WineDTO> add(
 			@RequestBody WineDTO newWine){
-		
+
 		Wine wine = toWine.convert(newWine); 
 		wineService.save(wine);
-		
+
 		return new ResponseEntity<>(toDTO.convert(wine),
 				HttpStatus.CREATED);
 	}
-	
+
 	@RequestMapping(method=RequestMethod.PUT,
 			value="/{id}")
 	public ResponseEntity<WineDTO> edit(
 			@PathVariable Long id,
 			@RequestBody WineDTO edited){
-		
+
 		if(!id.equals(edited.getId())){
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
+
 		Wine wine = toWine.convert(edited); 
 		wineService.save(wine);
-		
+
 		return new ResponseEntity<>(toDTO.convert(wine),
 				HttpStatus.OK);
 	}

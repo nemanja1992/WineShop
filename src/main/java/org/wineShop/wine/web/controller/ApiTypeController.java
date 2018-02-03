@@ -36,14 +36,14 @@ public class ApiTypeController {
 	private TypeToTypeDTO toDTO;
 	@Autowired
 	private WineToWineDTO toWineDTO;
-	
+
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<TypeDTO>> get(){
 		return new ResponseEntity<>(
 				toDTO.convert(typeService.findAll()),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<TypeDTO> get(
 			@PathVariable Long id){
@@ -51,18 +51,18 @@ public class ApiTypeController {
 		if(type== null){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		
+
 		return new ResponseEntity<> (
 				toDTO.convert(type),
 				HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value="/{typeId}/wines")
 	public ResponseEntity<List<WineDTO>> wineType(
 			@PathVariable Long typeId,
 			@RequestParam(defaultValue="0") int pageNum){
 		Page<Wine> wines= wineService.findByTypeId(pageNum, typeId);
-		
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("totalPages", Integer.toString(wines.getTotalPages()));
 		return new ResponseEntity<>(
