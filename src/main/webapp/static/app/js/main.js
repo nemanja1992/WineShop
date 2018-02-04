@@ -32,11 +32,18 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 	$scope.newWine.companyId = "" ;
 	$scope.newWine.typeId = "";
 
+    $scope.findWine={};
+    $scope.findWine.name="";
+
 	var getWines = function(){
 
 		var config = {params: {}};
 
 		config.params.pageNum = $scope.pageNum;
+
+        if ($scope.findWine.name != "") {
+            config.params.name = $scope.findWine.name;
+        }
 
 		$http.get(base_url_wine, config)
 		.then(function success(data){
@@ -114,5 +121,55 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 			$scope.newWine.typeId = "";
 		});
 	};
+
+});
+
+wineShop.controller("editWineCtrl", function($scope, $http,$routeParams, $location){
+
+    var base_url_wine ="/api/wine";
+    var base_url_company="/api/company";
+    var base_url_type="/api/type";
+
+    $scope.companies = [];
+    $scope.types = [];
+    $scope.oldWine = null;
+
+    var getOldWines = function(){
+
+        $http.get(base_url_wine + "/" + $routeParams.id)
+            .then(function success(data){
+                $scope.oldWine= data.data;
+            });
+    }
+    getOldWines();
+    
+    var getCompany = function(){
+
+        $http.get(base_url_company)
+        .then(function success(data){
+            $scope.companies = data.data;
+        });
+    };
+    var getType = function(){
+
+        $http.get(base_url_type)
+        .then(function success(data){
+            $scope.types = data.data;
+        });
+    };
+
+    
+    getCompany();
+    getType();
+
+    $scope.edit = function(){
+        $http.put(base_url_wine + "/" + $scope.oldWine.id, $scope.oldWine)
+            .then(function success(data){
+                alert("Edit success!");
+                $location.path("/");
+            });
+    }
+
+
 
 });

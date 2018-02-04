@@ -5,12 +5,15 @@ package org.wineShop.wine.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.wineShop.wine.model.Wine;
 import org.wineShop.wine.service.WineService;
@@ -31,9 +34,23 @@ public class ApiWineController {
 	private WineDTOToWine toWine;
 
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<WineDTO>> get(){
+	public ResponseEntity<List<WineDTO>> get(
+			@RequestParam(required=false) String name,
+			@RequestParam(defaultValue="0") int pageNum	){
+		
+		Page<Wine> wine;
+		
+		if(name != null){
+			wine=wineService.find(name, pageNum);
+		}else{
+			wine=wineService.findAll(pageNum);
+		}
+		
+		HttpHeaders headers= new HttpHeaders();
+		headers.add("totalPages", Integer.toString(wine.getTotalPages()));
 		return new ResponseEntity<>(
-				toDTO.convert(wineService.findAll()),
+				toDTO.convert(wine.getContent()),
+				headers,
 				HttpStatus.OK);
 	}
 

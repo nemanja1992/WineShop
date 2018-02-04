@@ -5,7 +5,7 @@
 		<h3 class="half">Find us on map...</h3> <iframe width=100%
 			height="450" frameborder="0" style="border: 0; float: right;"
 			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAz4_XNSGZE8K9Y8325vIdx1nTqodBUl4c
-    &q=Kornelija+StankoviÄ‡a+24,+Ð�Ð¾Ð²Ð¸+Ð¡Ð°Ð´"
+    &q=Kornelija+Stankovica+24,+Novi+Sad"
 			allowfullscreen> </iframe>
 	</span>
 
@@ -78,7 +78,7 @@
 		<br /> <br /> <br />
 
 	</div>
-	<span>
+
 
 		<table class="own-table own-table-rounded">
 
@@ -91,7 +91,11 @@
 				<th>Type</th>
 				<th>Price</th>
 				<th>Quantity</th>
-				<th></th>
+				<th><form><div style="float: right;">
+                    <button  style="float: right;" type="search"  ng-click="find()"><i class="fa fa-search"></i></button>
+      <input type="text" class="search" placeholder="Search.." name="name" ng-model="findWine.name">
+      
+    </div></form></th>
 
 			</tr>
 			<tr ng-repeat="wine in wines">
@@ -103,18 +107,18 @@
 				<td>{{wine.typeName}}</td>
 				<td>{{wine.price}}$</td>
 				<td>{{wine.quantity}}</td>
-				<td>
-					<button class="btn btn-primary" ng-click="delete(wine.id)">Delete</button>
-					<button class="btn btn-info" ng-click="edit(wine.id)">Edit</button>
+				<td >
+					<button style="float: right;" class="btn btn-primary" ng-click="delete(wine.id)">Delete</button>
+					<button style="float: right;" class="btn btn-info" ng-click="edit(wine.id)">Edit</button>
 				</td>
 			</tr>
 		</table>
-		<div class="btn-group pull-right">
+		<div class="btn-group pull-right" >
 			<button class="btn btn-primary" ng-click="preview()"
 				ng-disabled="pageNum==0">Preview</button>
 			<button class="btn btn-primary" ng-click="next()"
 				ng-disabled="pageNum == totalPages - 1">Next</button>
 		</div> <br>
 	<br>
-	</span>
+	
 </div>

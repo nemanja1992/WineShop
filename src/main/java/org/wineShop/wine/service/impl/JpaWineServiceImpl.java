@@ -1,6 +1,5 @@
 package org.wineShop.wine.service.impl;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,8 +20,9 @@ public class JpaWineServiceImpl implements WineService {
 	private WineRepository wineRepository;
 	
 	@Override
-	public List<Wine> findAll() {
-		return wineRepository.findAll();
+	public Page<Wine> findAll(int pageNum) {
+		return wineRepository.findAll(
+				new PageRequest(pageNum, 8));
 	}
 
 	@Override
@@ -52,6 +52,18 @@ public class JpaWineServiceImpl implements WineService {
 	public Page<Wine> findByTypeId(int pageNum, Long typeId) {
 		
 		return wineRepository.findByTypeId(typeId, new PageRequest(pageNum, 10));
+	}
+
+	@Override
+	public Page<Wine> find(String name, int page) {
+		if(name != null ){
+			name = "%" + name + "%";
+		}
+		
+		if(name != null ){
+			name = "%" + name + "%";
+		}
+		return wineRepository.find(name,   new PageRequest(page, 8));
 	}
 
 

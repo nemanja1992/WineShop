@@ -1,3 +1,64 @@
-<div>
-	<h1>SOON</h1>
+<div ng-controller="editWineCtrl">
+	<form>
+			<h3 class="half">Edit wine</h3>
+
+			<div class="col-25">
+				<label for="nameNW">Name:</label> <input type="text" name="nameNW"
+					ng-model="oldWine.name" placeholder="Please enter wine name"
+					id="clear" required>
+			</div>
+			<br>
+			<br>
+			<div class="col-25">
+				<label for="vintage">Vintage:</label> <input type="date"
+					id="rangeForm" name="vintage" ng-model="newWine.vintage"
+					placeholder="Please enter vintage" required>
+			</div>
+			<br />
+			<div class="col-25">
+				<label for="percent">Alcohol percent:</label> <input type="number"
+					name="percent" ng-model="oldWine.alcoholPercent"
+					placeholder="Please enter alcohol percent"
+					ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" double required>
+				<span ng-show="form.size.$error.double">The value is not a
+					valid integer!</span>
+
+			</div>
+			<div class="col-25">
+				<label for="company">Company</label> <select class="form-control"
+					name="company" ng-model="oldWine.companyId" required>
+					<option ng-repeat="company in companies" value="{{company.id}}">{{company.name}}</option>
+
+				</select>
+			</div>
+			<div class="col-25">
+				<label for="type">Type</label> <select class="form-control"
+					name="type" ng-model="oldWine.typeId" required>
+					<option ng-repeat="type in types" value="{{type.id}}">{{type.name}}</option>
+
+				</select>
+			</div>
+
+			<div class="col-25">
+				<label for="price">Price:</label> <input type="number" name="price"
+					ng-model="oldWine.price" placeholder="Please enter price"
+					ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" double required>
+				<span ng-show="form.size.$error.double">The value is not a
+					valid decimal number!</span>
+
+			</div>
+			<div class="col-25">
+				<label for="quantity">Quantity:</label> <input type="number"
+					name="quantity" ng-model="oldWine.quantity"
+					placeholder="Please enter the number of wine bottles" integer
+					required> <span ng-show="form.size.$error.integer">The
+					value is not a valid integer!</span>
+
+			</div>
+			<br />
+			<button type="button" class="btn btn-primary"
+				ng-click="oldWine= null">Clear</button>
+			<button type="submit" id="register-form" class="btn btn-primary"
+				ng-click="edit()">Confirm!</button>
+		</form>
 </div>

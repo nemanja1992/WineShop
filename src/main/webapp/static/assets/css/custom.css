@@ -148,4 +148,18 @@ span.map {
 	float: right;
 	width: 50%;
 }
+
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+input.search[type=text] {
+	background-color: white;
+	color: black;
+	width: 60%;
+	
+}
+
 }
