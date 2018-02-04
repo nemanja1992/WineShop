@@ -64,7 +64,7 @@ div.static {
 .own-table-rounded tbody td {
 	border: none;
 	border-top: solid 3px #000;
-	background-color: rgba(76, 185, 180, 0.5);
+	background-color: rgba(172, 231, 240, 0.7);
 	color: #000000;
 }
 
@@ -75,20 +75,20 @@ div.static {
     border-radius: 0 0 10px 0;
 }*/
 input[type=text] {
-	background-color: rgba(76, 185, 180, 0.7);
+	background-color: rgba(255, 255, 255, 0.70);
 	color: black;
 	width: 100%;
 	float: right;
 }
 
 input[type=number] {
-	background-color: rgba(76, 185, 180, 0.7);
+	background-color: rgba(255, 255, 255, 0.70);
 	color: black;
 	width: 100%;
 }
 
 input[type=date] {
-	background-color: rgba(76, 185, 180, 0.7);
+	background-color: rgba(255, 255, 255, 0.70);
 	color: black;
 	width: 100%;
 }
@@ -105,7 +105,7 @@ div.my {
 }
 
 .form-control {
-	background-color: rgba(76, 185, 180, 0.7);
+	background-color: rgba(255, 255, 255, 0.70);
 	color: black;
 	width: 100%;
 }
@@ -162,4 +162,10 @@ input.search[type=text] {
 	
 }
 
+div.about {
+	color: black;
+	background-color: rgba(255, 255, 255, 0.80);
+	border-radius: 15px 15px 15px 15px;
+	padding: 1cm ;
+}
 }

@@ -1,0 +1,27 @@
+<div>
+	<br><br><br><br><br>
+	</script>
+      <section id="contact">
+        <div class="container">
+          <h2 class="text-center">Contact Me</h2>
+          <hr class="star-primary">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+            <form name="myForm" onsubmit="return validateForm()"  action="https://formspree.io/nemanja.sekulic92@gmail.com"  method="POST">
+              <label>Name</label>
+                <input type="text" required data-validation-required-message="Please enter your name." name="name" class="form-control"/><br><br>
+              <label>Email</label>
+                <input type="email" required data-validation-required-message="Please enter your email address." class="form-control" name="_replyto"><br><br>
+              <label>Message</label>
+            <textarea name="Message" rows="5" required data-validation-required-message="Please enter a message." class="form-control"></textarea><br><br><br><br>
+              <div class="form-group">
+                <input type="submit" value="Send" class="btn btn-success btn-lg">
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </section>
+ <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+</div>

@@ -5,11 +5,30 @@ wineShop.config(['$routeProvider', function ($routeProvider){
 		templateUrl: '/static/app/html/partial/wine.html'
 	}).when('/wine/edit/:id',{
 		templateUrl: '/static/app/html/partial/edit-wine.html'
+    }).when('/wine/gallery',{
+        templateUrl: '/static/app/html/partial/gallery.html'
+    }).when('/wine/about',{
+        templateUrl: '/static/app/html/partial/about.html'
+    }).when('/wine/contact',{
+        templateUrl: '/static/app/html/partial/contact.html'
 	}).otherwise({
 		redirectTo: '/'
 	});
 }]);
-
+wineShop.controller("indexCtrl", function($scope,  $location){
+    $scope.gallery= function(){
+        $location.path('/wine/gallery')
+    }
+    $scope.home= function(){
+        $location.path('/')
+    }
+    $scope.about= function(){
+        $location.path('/wine/about')
+    }
+    $scope.contact= function(){
+        $location.path('/wine/contact')
+    }
+});
 wineShop.controller("wineCtrl", function($scope, $http, $location){
 
 	var base_url_wine="/api/wine";
@@ -92,6 +111,7 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 	$scope.edit = function(id){
 		$location.path('/wine/edit/' + id);
 	};
+    
 
 	$scope.delete = function(id){
 		$http.delete(base_url_wine + "/" + id).then(
@@ -142,7 +162,7 @@ wineShop.controller("editWineCtrl", function($scope, $http,$routeParams, $locati
             });
     }
     getOldWines();
-    
+
     var getCompany = function(){
 
         $http.get(base_url_company)
@@ -173,3 +193,5 @@ wineShop.controller("editWineCtrl", function($scope, $http,$routeParams, $locati
 
 
 });
+
+
