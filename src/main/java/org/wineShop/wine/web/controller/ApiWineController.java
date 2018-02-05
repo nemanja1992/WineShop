@@ -33,15 +33,39 @@ public class ApiWineController {
 	@Autowired
 	private WineDTOToWine toWine;
 
+//	@RequestMapping(method=RequestMethod.GET)
+//	public ResponseEntity<List<WineDTO>> get(
+//			@RequestParam(required=false) String name,
+//			@RequestParam(defaultValue="0") int pageNum	){
+//		
+//		Page<Wine> wine;
+//		
+//		if(name != null){
+//			wine=wineService.find(name, pageNum);
+//		}else{
+//			wine=wineService.findAll(pageNum);
+//		}
+//		
+//		HttpHeaders headers= new HttpHeaders();
+//		headers.add("totalPages", Integer.toString(wine.getTotalPages()));
+//		return new ResponseEntity<>(
+//				toDTO.convert(wine.getContent()),
+//				headers,
+//				HttpStatus.OK);
+//	}
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<WineDTO>> get(
 			@RequestParam(required=false) String name,
+			@RequestParam(required=false) Integer vintage,
+			@RequestParam(required=false) Double minPrice,
+			@RequestParam(required=false) Double maxPrice,
 			@RequestParam(defaultValue="0") int pageNum	){
 		
 		Page<Wine> wine;
 		
-		if(name != null){
-			wine=wineService.find(name, pageNum);
+		if(name != null || vintage != null || minPrice !=null || 
+				maxPrice !=null  ){
+			wine=wineService.filter(name, vintage, minPrice, maxPrice, pageNum);
 		}else{
 			wine=wineService.findAll(pageNum);
 		}

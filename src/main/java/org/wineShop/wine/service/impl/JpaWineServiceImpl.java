@@ -66,6 +66,22 @@ public class JpaWineServiceImpl implements WineService {
 		return wineRepository.find(name,   new PageRequest(page, 8));
 	}
 
+	@Override
+	public Page<Wine> filter(String name, Integer vintage, Double minPrice,
+			Double maxPrice,  int page) {
+		if(name != null ){
+			name = "%" + name + "%";
+		}
+		
+		if(name != null ){
+			name = "%" + name + "%";
+		}
+		return wineRepository.filter(name, vintage, minPrice, maxPrice,
+									 new PageRequest(page, 8));
+		
+		
+	}
+
 
 
 }

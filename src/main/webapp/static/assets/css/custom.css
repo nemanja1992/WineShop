@@ -134,7 +134,7 @@ h3.halfe {
 	float: right;
 }
 
-table::before {
+/*table::before {
 	content: "Wine card";
 	background-color: rgba(171, 200, 200, 0.36);
 	color: rgb(67, 68, 68);
@@ -142,7 +142,8 @@ table::before {
 	font-size: 40px;
 	width: 100%;
 	border-radius: 3px 3px 3px 3px;
-}
+}*/
+
 
 span.map {
 	float: right;
@@ -168,4 +169,135 @@ div.about {
 	border-radius: 15px 15px 15px 15px;
 	padding: 1cm ;
 }
+div.foo{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.letter{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 2.8em;
+  margin: 0.1em;
+  position: relative;
+  color: #000;
+  transform-style: preserve-3d;
+  perspective: 900;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+  left:0;
+}
+.letter, .letter:before, .letter:after{
+  transition: all 0.3s ease-in-out;
+}
+.letter:before{
+  color: #000;
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-5deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
+}
+
+.filterBtn {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1161eb), color-stop(1, #003c85));
+	background:-moz-linear-gradient(top, #1161eb 5%, #003c85 100%);
+	background:-webkit-linear-gradient(top, #1161eb 5%, #003c85 100%);
+	background:-o-linear-gradient(top, #1161eb 5%, #003c85 100%);
+	background:-ms-linear-gradient(top, #1161eb 5%, #003c85 100%);
+	background:linear-gradient(to bottom, #1161eb 5%, #003c85 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1161eb', endColorstr='#003c85',GradientType=0);
+	background-color:#1161eb;
+	-moz-border-radius:27px;
+	-webkit-border-radius:27px;
+	border-radius:27px;
+	border:5px solid #3d508a;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:19px;
+	font-weight:bold;
+	padding:13px 46px;
+	text-decoration:none;
+	text-shadow:-2px 2px 6px #071129;
+}
+.filterBtn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #003c85), color-stop(1, #1161eb));
+	background:-moz-linear-gradient(top, #003c85 5%, #1161eb 100%);
+	background:-webkit-linear-gradient(top, #003c85 5%, #1161eb 100%);
+	background:-o-linear-gradient(top, #003c85 5%, #1161eb 100%);
+	background:-ms-linear-gradient(top, #003c85 5%, #1161eb 100%);
+	background:linear-gradient(to bottom, #003c85 5%, #1161eb 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#003c85', endColorstr='#1161eb',GradientType=0);
+	background-color:#003c85;
+}
+.filterBtn:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+
+.pen-title {
+  padding: 50px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.pen-title h1 {
+  margin: 0 0 20px;
+  font-size: 48px;
+  font-weight: 300;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: #ed2553;
+}
+.pen-title span a {
+  color: #ed2553;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+
+
 }

@@ -1,6 +1,5 @@
 package org.wineShop.wine.model;
 
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +26,7 @@ public class Wine {
 	@Column
 	private int quantity;
 	@Column
-	private Date vintage;
+	private int vintage;
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Company company;
 	@ManyToOne(fetch=FetchType.EAGER)
@@ -46,10 +45,10 @@ public class Wine {
 	public void setName(String commentAuthorName) {
 		this.name = commentAuthorName;
 	}
-	public Date getVintage() {
+	public int getVintage() {
 		return vintage;
 	}
-	public void setVintage(Date commentDate) {
+	public void setVintage(int commentDate) {
 		this.vintage = commentDate;
 	}
 	public Company getCompany() {

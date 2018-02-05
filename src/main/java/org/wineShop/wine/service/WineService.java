@@ -16,4 +16,10 @@ public interface WineService {
 	Page<Wine> find(
 			@Param("name") String name,
 			int page);
+	Page<Wine> filter(
+			@Param("name") String name,
+			@Param("vintage") Integer vintage,
+			@Param("minPrice") Double minPrice,
+			@Param("maxPrice") Double maxPrice,
+			int page);
 }

@@ -1,6 +1,6 @@
 package org.wineShop.wine.web.dto;
 
-import java.sql.Date;
+
 
 public class WineDTO {
 
@@ -10,7 +10,7 @@ public class WineDTO {
 	private Double alcoholPercent;
 	private Double price;
 	private int quantity;
-	private Date vintage;
+	private int vintage;
 	private Long companyId;
 	private String companyName;
 	private String companyPib;
@@ -37,10 +37,10 @@ public class WineDTO {
 	public void setAlcoholPercent(Double alcoholPercent) {
 		this.alcoholPercent = alcoholPercent;
 	}
-	public Date getVintage() {
+	public int getVintage() {
 		return vintage;
 	}
-	public void setVintage(Date vintage) {
+	public void setVintage(int vintage) {
 		this.vintage = vintage;
 	}
 	public Long getCompanyId() {

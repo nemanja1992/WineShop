@@ -21,5 +21,18 @@ public interface WineRepository
 	Page<Wine> find(
 			@Param("name") String name,
 			Pageable pageRequest);
+	
+	@Query("SELECT w FROM Wine w WHERE"
+			+ "(:name IS NULL or w.name like :name) AND"
+			+ "(:vintage IS NULL or w.vintage like :vintage) AND"
+			+ "(:minPrice IS NULL or w.price > :minPrice) AND"
+			+ "(:maxPrice IS NULL or w.price <= :maxPrice) "
+			)
+	Page<Wine> filter(
+			@Param("name") String name,
+			@Param("vintage") Integer vintage,
+			@Param("minPrice") Double minPrice,
+			@Param("maxPrice") Double maxPrice,
+			Pageable pageRequest);
 			
 }

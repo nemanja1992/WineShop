@@ -13,8 +13,22 @@
 	<div class="row my ">
 		<br />
 		<form>
-			<h3 class="half">Add new wine</h3>
-
+			
+			<div class="foo">
+  <span class="letter" data-letter="A">A</span>
+  <span class="letter" data-letter="D">D</span>
+  <span class="letter" data-letter="D">D</span>
+  <span class="letter" data-letter=" "> </span>
+  <span class="letter" data-letter="N">N</span>
+  <span class="letter" data-letter="E">E</span>
+  <span class="letter" data-letter="W">W</span>
+  <span class="letter" data-letter=" "> </span>
+  <span class="letter" data-letter="W">W</span>
+  <span class="letter" data-letter="I">I</span>
+  <span class="letter" data-letter="N">N</span>
+  <span class="letter" data-letter="E">E</span>
+ 
+</div>
 			<div class="col-25">
 				<label for="nameNW">Name:</label> <input type="text" name="nameNW"
 					ng-model="newWine.name" placeholder="Please enter wine name"
@@ -23,9 +37,9 @@
 			<br>
 			<br>
 			<div class="col-25">
-				<label for="vintage">Vintage:</label> <input type="date"
+				<label for="vintage">Vintage:</label> <input type="number"
 					id="rangeForm" name="vintage" ng-model="newWine.vintage"
-					placeholder="Please enter vintage" required>
+					placeholder="Please enter vintage" min="1500" max="2018" integer required>
 			</div>
 			<br />
 			<div class="col-25">
@@ -76,10 +90,44 @@
 		</form>
 
 		<br /> <br /> <br />
+<input  type="button" name="filter" ng-click="filter=!filter" class="filterBtn" value="Filter" style="float: left;">
+<form>
+	
+ <br><br><br><br>
+<div ng-show="filter" style="padding: 0.1cm;float: left;display: inline-block;background-color: black" >
+	 <div class="input-container">
+	<input list="names" name="name" ng-model="findWine.name" autocomplete="off" style="padding: 0.1cm" placeholder="Insert wine name">
+  <datalist id="names">
+    <option  ng-repeat="wine in wines" value="{{wine.name}}">{{wine.name}}</option>
+  </datalist>
+</div> <div class="input-container">
+	<input type="number" name="vintage" placeholder="Insert vintage"  ng-model="findWine.vintage" min="1500" max="2018" integer>
+</div> <div class="input-container">
+	<input type="number" name="minPrice" placeholder="Insert min price" style="padding: 0.1cm" ng-model="findWine.minPrice">
+</div> <div class="input-container">
+	<input type="number" name="maxPrice" placeholder="Insert max price" style="padding: 0.1cm" ng-model="findWine.maxPrice">
+</div>
+	
+	<button type="search"  ng-click="find()" class="btn-success" style="width: 100%">Search!</button>
 
+	</div></form>
 	</div>
+		<div  >
+				<div class="foo" style="float: left;font-size: 30px;">
+  <span class="letter" data-letter="W">W</span>
+  <span class="letter" data-letter="I">I</span>
+  <span class="letter" data-letter="N">N</span>
+  <span class="letter" data-letter="E">E</span>
+  <span class="letter" data-letter=" "> </span>
+  <span class="letter" data-letter="C">C</span>
+  <span class="letter" data-letter="A">A</span>
+  <span class="letter" data-letter="R">R</span>
+  <span class="letter" data-letter="D">D</span>
 
-
+ 
+</div>
+		
+	
 		<table class="own-table own-table-rounded">
 
 			<tr>
@@ -91,7 +139,7 @@
 				<th>Type</th>
 				<th>Price</th>
 				<th>Quantity</th>
-				<th><form><div style="float: right;">
+				<th "><form><div style="float: right;">
                     <button  style="float: right;" type="search"  ng-click="find()"><i class="fa fa-search"></i></button>
       <input type="text" class="search" placeholder="Search.." name="name" ng-model="findWine.name">
       
@@ -113,6 +161,7 @@
 				</td>
 			</tr>
 		</table>
+	</div>
 		<div class="btn-group pull-right" >
 			<button class="btn btn-primary" ng-click="preview()"
 				ng-disabled="pageNum==0">Preview</button>
