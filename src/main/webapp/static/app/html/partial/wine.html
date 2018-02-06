@@ -94,7 +94,7 @@
 <form>
 	
  <br><br><br><br>
-<div ng-show="filter" style="padding: 0.1cm;float: left;display: inline-block;background-color: black" >
+<div ng-show="filter" class="searchGroup " >
 	 <div class="input-container">
 	<input list="names" name="name" ng-model="findWine.name" autocomplete="off" style="padding: 0.1cm" placeholder="Insert wine name">
   <datalist id="names">
@@ -107,10 +107,11 @@
 </div> <div class="input-container">
 	<input type="number" name="maxPrice" placeholder="Insert max price" style="padding: 0.1cm" ng-model="findWine.maxPrice">
 </div>
-	
-	<button type="search"  ng-click="find()" class="btn-success" style="width: 100%">Search!</button>
+	<button type="search"  ng-click="clear() ; find()" class="btn-info" style="width: 100%">Restart!</button>
+	<button type="search"  ng-click="find()" class="btn-primary" style="width: 100%">Search!</button>
 
 	</div></form>
+
 	</div>
 		<div  >
 				<div class="foo" style="float: left;font-size: 30px;">

@@ -56,8 +56,7 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
     $scope.findWine.vintage="";
     $scope.findWine.minPrice="";
     $scope.findWine.maxPrice="";
-    
-
+    $scope.findWine.companyId="";
 
 
 	var getWines = function(){
@@ -78,6 +77,7 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
         if ($scope.findWine.maxPrice != "") {
             config.params.maxPrice = $scope.findWine.maxPrice;
         }
+
         
 
 		$http.get(base_url_wine, config)
@@ -88,7 +88,7 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 	};
 
 	var getCompany = function(){
-
+		
 		$http.get(base_url_company)
 		.then(function success(data){
 			$scope.companies = data.data;
@@ -122,7 +122,11 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 	$scope.find = function () {
 		$scope.pageNum = 0;
 		getWines();
+		getCompany();
 	};
+	$scope.clear =function(){
+		$scope.findWine="";
+	}
 
 	$scope.edit = function(id){
 		$location.path('/wine/edit/' + id);
