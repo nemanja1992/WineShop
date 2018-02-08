@@ -59,6 +59,7 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
     $scope.findWine.companyId="";
 
 
+
 	var getWines = function(){
 
 		var config = {params: {}};
@@ -94,6 +95,7 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 			$scope.companies = data.data;
 		});
 	};
+	
 	var getType = function(){
 
 		$http.get(base_url_type)
@@ -102,9 +104,12 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 		});
 	};
 
+	
+
 	getWines();
 	getCompany();
 	getType();
+	
 
 	$scope.preview = function(){
 		if($scope.pageNum > 0) {
@@ -162,6 +167,7 @@ wineShop.controller("wineCtrl", function($scope, $http, $location){
 		});
 	};
 
+
 });
 
 wineShop.controller("editWineCtrl", function($scope, $http,$routeParams, $location){
@@ -208,7 +214,7 @@ wineShop.controller("editWineCtrl", function($scope, $http,$routeParams, $locati
                 alert("Edit success!");
                 $location.path("/");
             });
-    }
+    };
 
 
 
